@@ -1,0 +1,23 @@
+# myappsvcdeploy.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sindhu8878-deploy
+  labels:
+    app: sindhu8878-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sindhu8878-app
+  template:
+    metadata:
+      labels:
+        app: sindhu8878-app
+    spec:
+      containers:
+      - name: sindhu8878-container
+        image: sindhu8878/mywebapps-img:v1.0
+        ports:
+        - containerPort: 8080
